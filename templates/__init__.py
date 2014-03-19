@@ -12,6 +12,7 @@ def base (page):
     extend_([u'    <title>MapGetter</title>\n'])
     extend_([u'    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />\n'])
     extend_([u'    <link rel="stylesheet"    type="text/css"     href="/static/Styles/styles.css"  />\n'])
+    extend_([u'    <script src="/static/Scripts/mapgetter.js" type="text/javascript"></script>\n'])
     extend_([u'</head>\n'])
     extend_([u'<body>\n'])
     extend_([u'    <div class="header" id="mainheader">\n'])
