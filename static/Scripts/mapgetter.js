@@ -25,5 +25,33 @@ function handleCheck(cb) {
             llTextIds[i].disabled = true;
         };
     }
+}
 
+function handleGetMap(button) {
+    var cb = document.getElementById("coordcheck");
+    var size = "&size=640x640";
+    var zoomval = document.getElementById("zoombox").value;
+    var zoom = "&zoom=" + zoomval;
+    var formt = "&format=png32";
+    var mtype = "&maptype=satellite"
+    var sensor = "&sensor=false"
+    var StaticAPIKey = "&key=AIzaSyC96sP49qW-aePnuHnJnRZhGcSkvhIWNKs";
+    var baseURL = "http://maps.googleapis.com/maps/api/staticmap?";
+
+    if (cb.checked) {
+        var lat  = document.getElementById("latbox").value;
+        var lon  = document.getElementById("lonbox").value;
+        var center = "center=" + lat + "," + lon;
+    }
+    else {
+        var address = document.getElementById("addressbox").value;
+        address.replace(" ", "+");
+        var city    = document.getElementById("citybox").value;
+        city.replace(" ", "+");
+        var state   = document.getElementById("statebox").value;
+        var center = "center=" + address + "," + city + "," + state;
+    }
+    url = baseURL + center + zoom + size + formt + mtype + sensor + StaticAPIKey;
+    pic = document.getElementById("mapresult");
+    pic.src = url;
 }

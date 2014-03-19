@@ -32,14 +32,14 @@ for i in range(5, 20):
     tup = (str(i), str(i))
     zoomvalues.append(tup)
 
-map_form = web.form.Form(web.form.Checkbox('By Coordinates', checked=False, onClick='handleCheck(this);'),
-                         web.form.Textbox('Address', id='addressbox'),
-                         web.form.Textbox('City', id='citybox',),
-                         web.form.Textbox('State', id='statebox'),
-                         web.form.Textbox('Latitude', id='latbox', disabled=True),
-                         web.form.Textbox('Longitude', id='lonbox', disabled=True),
+map_form = web.form.Form(web.form.Checkbox('By Coordinates', checked=True, id="coordcheck", onClick='handleCheck(this);'),
+                         web.form.Textbox('Address', id='addressbox', disabled=False),
+                         web.form.Textbox('City', id='citybox', disabled=False),
+                         web.form.Textbox('State', id='statebox', disabled=False),
+                         web.form.Textbox('Latitude', id='latbox'),
+                         web.form.Textbox('Longitude', id='lonbox'),
                          web.form.Dropdown('zoomdrop', zoomvalues, id='zoomdrop'),
-                         web.form.Button('Get My Map', id='citybutton'))
+                         web.form.Button('Get My Map', id='citybutton', onClick='handleGetMap(this);'))
 
 ##------------------------------------------------------------------------
 ## Web Page Class Definitions

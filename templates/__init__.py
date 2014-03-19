@@ -39,10 +39,13 @@ def index (form):
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
     extend_([u'\n'])
-    extend_([u'<div id="mapforms", class="forms">\n'])
+    extend_([u'<div id="mapforms" class="forms">\n'])
     extend_([u'    <form name="mapform" method="post" >\n'])
     extend_([u'        ', escape_(form.render(), False), u'\n'])
     extend_([u'    </form>\n'])
+    extend_([u'</div>\n'])
+    extend_([u'<div id="mapimage" class="images">\n'])
+    extend_([u'    <img id="mapresult" />\n'])
     extend_([u'</div>\n'])
 
     return self
