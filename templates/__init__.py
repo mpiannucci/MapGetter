@@ -11,8 +11,7 @@ def base (page):
     extend_([u'<head>\n'])
     extend_([u'    <title>MapGetter</title>\n'])
     extend_([u'    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />\n'])
-    extend_([u'    <link rel="stylesheet" type="text/css" href="/static/Styles/mobile.css" media="only screen and (max-device-width: 767px)" />\n'])
-    extend_([u'    <link rel="stylesheet" type="text/css" href="/static/Styles/screen.css" media="only screen and (min-device-width: 768px)" />\n'])
+    extend_([u'    <link rel="stylesheet"    type="text/css"     href="/static/Styles/styles.css"  />\n'])
     extend_([u'</head>\n'])
     extend_([u'<body>\n'])
     extend_([u'    <div class="header" id="mainheader">\n'])
@@ -34,11 +33,16 @@ base = CompiledTemplate(base, 'templates/base.html')
 join_ = base._join; escape_ = base._escape
 
 # coding: utf-8
-def index():
-    __lineoffset__ = -5
+def index (form):
+    __lineoffset__ = -4
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
     extend_([u'\n'])
+    extend_([u'<div id="mapforms", class="forms">\n'])
+    extend_([u'    <form name="mapform" method="post" >\n'])
+    extend_([u'        ', escape_(form.render(), False), u'\n'])
+    extend_([u'    </form>\n'])
+    extend_([u'</div>\n'])
 
     return self
 

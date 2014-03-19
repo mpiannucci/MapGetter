@@ -25,12 +25,29 @@ config.read('key.cfg')
 StaticAPIKey = config.get('api-keys', 'mapskey')
 
 ##------------------------------------------------------------------------
+## Form Definitions
+
+zoomvalues = []
+for i in range(5, 20):
+    tup = (str(i), str(i))
+    zoomvalues.append(tup)
+
+map_form = web.form.Form(web.form.Textbox('Address', id='addressbox'),
+                              web.form.Textbox('City', id='citybox'),
+                              web.form.Textbox('State', id='statebox'),
+                              web.form.Textbox('Latitude', id='latbox'), 
+                              web.form.Textbox('Longitude', id='lonbox'),
+                              web.form.Dropdown('zoomdrop', zoomvalues, id='zoomdrop'),
+                              web.form.Button('Get My Map', id='citybutton'))
+
+##------------------------------------------------------------------------
 ## Web Page Class Definitions
 
 class Index:
     '''Main index page'''
     def GET(self):
-        return render.index()
+        form = map_form()
+        return render.index(form)
 
 class MapCenter:
     '''Show the static map image around a center'''
