@@ -4,12 +4,18 @@ $def with (page)
 <head>
     <title>MapGetter</title>
     <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="/static/Styles/mobile.css" media="only screen and (max-device-width: 767px)" />
-    <link rel="stylesheet" type="text/css" href="/static/Styles/screen.css" media="only screen and (min-device-width: 768px)" />
+    <link rel="stylesheet"    type="text/css"     href="/static/Styles/styles.css"  />
 </head>
 <body>
+    <div class="header" id="mainheader">
+        <h1>MapGetter</h1>
+        <em>Get static images of a central area with coorridinates in meters.</em>
+    </div>
     <div id="mapImage">
         $:page
+    </div>
+    <div class="footer" id="mainfooter">
+        <p>Copyright 2014, Matthew Iannucci</p>
     </div>
 </body>
 </html>
