@@ -1,11 +1,8 @@
 import web
-import ConfigParser
 
 # Map out the URLs
 urls = (
     '/', 'Index',
-    '/mapc(.+)', 'MapCenter', 
-    '/mapl(.+)', 'MapLatLon'
 )
 
 # Set the debugging messages
@@ -13,16 +10,11 @@ web.config.debug = True
 
 ### Define the globals
 t_globals = {
-    'datestr': web.datestr,
 }
 render = web.template.render('templates', base='base', globals=t_globals)
 
 # Create the web application
 app = web.application(urls, globals())
-
-config = ConfigParser.RawConfigParser()
-config.read('key.cfg')
-StaticAPIKey = config.get('api-keys', 'mapskey')
 
 ##------------------------------------------------------------------------
 ## Form Definitions
