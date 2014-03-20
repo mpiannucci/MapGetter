@@ -38,8 +38,7 @@ map_form = web.form.Form(web.form.Checkbox('By Coordinates', checked=True, id="c
                          web.form.Textbox('State', id='statebox', disabled=False),
                          web.form.Textbox('Latitude', id='latbox'),
                          web.form.Textbox('Longitude', id='lonbox'),
-                         web.form.Dropdown('zoomdrop', zoomvalues, id='zoomdrop'),
-                         web.form.Button('Get My Map', id='citybutton', onClick='handleGetMap(this);'))
+                         web.form.Dropdown('zoomdrop', zoomvalues, id='zoomdrop'))
 
 ##------------------------------------------------------------------------
 ## Web Page Class Definitions

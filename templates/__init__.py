@@ -40,12 +40,14 @@ def index (form):
     self = TemplateResult(); extend_ = self.extend
     extend_([u'\n'])
     extend_([u'<div id="mapforms" class="forms">\n'])
-    extend_([u'    <form name="mapform" method="post" >\n'])
+    extend_([u'    <form name="mapform" >\n'])
     extend_([u'        ', escape_(form.render(), False), u'\n'])
     extend_([u'    </form>\n'])
+    extend_([u'    <button id="mapbutton" type="button" onClick="handleGetMap();">Get My Map</button>\n'])
     extend_([u'</div>\n'])
     extend_([u'<div id="mapimage" class="images">\n'])
-    extend_([u'    <img id="mapresult" />\n'])
+    extend_([u'    <img src="" id="mapresult" />\n'])
+    extend_([u'    <p id="urlprint">URL HERE</p>\n'])
     extend_([u'</div>\n'])
 
     return self

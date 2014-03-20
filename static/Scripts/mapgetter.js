@@ -27,31 +27,34 @@ function handleCheck(cb) {
     }
 }
 
-function handleGetMap(button) {
+function handleGetMap() {
     var cb = document.getElementById("coordcheck");
     var size = "&size=640x640";
-    var zoomval = document.getElementById("zoombox").value;
-    var zoom = "&zoom=" + zoomval;
+    var scale = "&scale=2";
+    var zoomval = document.getElementById("zoomdrop");
+    var zoom = "&zoom=" + zoomval[zoomval.selectedIndex].value;
     var formt = "&format=png32";
     var mtype = "&maptype=satellite"
     var sensor = "&sensor=false"
     var StaticAPIKey = "&key=AIzaSyC96sP49qW-aePnuHnJnRZhGcSkvhIWNKs";
     var baseURL = "http://maps.googleapis.com/maps/api/staticmap?";
-
+    var lat, lon, state, city, address, center
     if (cb.checked) {
-        var lat  = document.getElementById("latbox").value;
-        var lon  = document.getElementById("lonbox").value;
-        var center = "center=" + lat + "," + lon;
+        lat = document.getElementById("latbox").value;
+        lon = document.getElementById("lonbox").value;
+        center = "center=" + lat + "," + lon;
     }
     else {
-        var address = document.getElementById("addressbox").value;
+        address = document.getElementById("addressbox").value;
         address.replace(" ", "+");
-        var city    = document.getElementById("citybox").value;
+        city = document.getElementById("citybox").value;
         city.replace(" ", "+");
-        var state   = document.getElementById("statebox").value;
-        var center = "center=" + address + "," + city + "," + state;
+        state = document.getElementById("statebox").value;
+        center = "center=" + address + "," + city + "," + state;
     }
-    url = baseURL + center + zoom + size + formt + mtype + sensor + StaticAPIKey;
-    pic = document.getElementById("mapresult");
-    pic.src = url;
+    mapurl = baseURL + center + zoom + size + scale + formt + mtype + sensor + StaticAPIKey;
+    var texter = document.getElementById("urlprint");
+    texter.innerHTML = mapurl;
+    var pic = document.getElementById("mapresult");
+    pic.src = mapurl;
 }
