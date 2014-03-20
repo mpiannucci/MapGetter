@@ -27,10 +27,19 @@ function handleCheck(cb) {
     }
 }
 
+// Return the size of the image in meters given the zoom and the size
+// Uses equation found here: https://mail.google.com/mail/ca/u/0/#inbox/144dcfd00d6d569d
+function scaleImage(size, lat, zoom) {
+    var R_EARTH = 6378137;
+    var ppm = (size) / ((Math.cos(lat*Math.PI/180) * 2*Math.PI * R_EARTH) / (256 * Math.pow(2, zoom))*600);
+    return size/ppm;
+}
+
+// Handle the press of the main form button
 function handleGetMap() {
     var cb = document.getElementById("coordcheck");
     var size = "&size=640x640";
-    var scale = "&scale=2";
+    var scale = "&scale=2"; // Returns 1280x12080
     var zoomval = document.getElementById("zoomdrop");
     var zoom = "&zoom=" + zoomval[zoomval.selectedIndex].value;
     var formt = "&format=png32";
@@ -43,6 +52,9 @@ function handleGetMap() {
         lat = document.getElementById("latbox").value;
         lon = document.getElementById("lonbox").value;
         center = "center=" + lat + "," + lon;
+        var meters = scaleImage(1280, lat, zoomval[zoomval.selectedIndex].value);
+        var meterpix = document.getElementById("meterpixels");
+        meterpix.innerHTML = meters + " Meters Wide , " + meters + " Meters Tall";
     }
     else {
         address = document.getElementById("addressbox").value;

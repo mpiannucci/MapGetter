@@ -46,29 +46,11 @@ def index (form):
     extend_([u'</div>\n'])
     extend_([u'<div id="mapimage" class="images">\n'])
     extend_([u'    <img src="" id="mapresult" />\n'])
+    extend_([u'    <h3 id="meterpixels"></h3>\n'])
     extend_([u'</div>\n'])
 
     return self
 
 index = CompiledTemplate(index, 'templates/index.html')
 join_ = index._join; escape_ = index._escape
-
-# coding: utf-8
-def map (url, opts):
-    __lineoffset__ = -4
-    loop = ForLoop()
-    self = TemplateResult(); extend_ = self.extend
-    extend_([u'\n'])
-    if len(opts) > 5:
-        opts[0] = opts[0].replace('+', ' ')
-        extend_([u'<h2>Map of ', escape_(opts[0], True), u', ', escape_(opts[1], True), u', ', escape_(opts[2], True), u'</h2>\n'])
-        extend_([u'<img src="', escape_(url, True), u'" />\n'])
-    else:
-        extend_([u'<h2>Map of ', escape_(opts[0], True), u',', escape_(opts[1], True), u'</h2>\n'])
-        extend_([u'<img src="', escape_(url, True), u'" />\n'])
-
-    return self
-
-map = CompiledTemplate(map, 'templates/map.html')
-join_ = map._join; escape_ = map._escape
 
