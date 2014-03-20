@@ -53,8 +53,6 @@ function handleGetMap() {
         center = "center=" + address + "," + city + "," + state;
     }
     mapurl = baseURL + center + zoom + size + scale + formt + mtype + sensor + StaticAPIKey;
-    var texter = document.getElementById("urlprint");
-    texter.innerHTML = mapurl;
     var pic = document.getElementById("mapresult");
     pic.src = mapurl;
 }
