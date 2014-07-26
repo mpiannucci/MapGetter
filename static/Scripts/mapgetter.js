@@ -12,18 +12,18 @@ function handleCheck(cb) {
     if (cb.checked) {
         for (var i=0; i<cityTextIds.length; i++) {
             cityTextIds[i].disabled = true;
-        };
-        for (var i=0; i<llTextIds.length; i++) {
-            llTextIds[i].disabled = false;
-        };
+        }
+        for (var j=0; j<llTextIds.length; j++) {
+            llTextIds[j].disabled = false;
+        }
     }
     else {
-        for (var i=0; i<cityTextIds.length; i++) {
-            cityTextIds[i].disabled = false;
-        };
-        for (var i=0; i<llTextIds.length; i++) {
-            llTextIds[i].disabled = true;
-        };
+        for (var k=0; k<cityTextIds.length; k++) {
+            cityTextIds[k].disabled = false;
+        }
+        for (var l=0; l<llTextIds.length; l++) {
+            llTextIds[l].disabled = true;
+        }
     }
 }
 
@@ -31,7 +31,7 @@ function handleCheck(cb) {
 // Uses equation found here: https://mail.google.com/mail/ca/u/0/#inbox/144dcfd00d6d569d
 function scaleImage(size, lat, zoom) {
     var R_EARTH = 6378137;
-    var ppm = (size) / ((Math.cos(lat*Math.PI/180) * 2*Math.PI * R_EARTH) / (256 * Math.pow(2, zoom))*600);
+    var ppm = (size) / ((Math.cos(lat*Math.PI/180) * 2*Math.PI * R_EARTH * 640) / (256 * Math.pow(2, zoom)));
     return size/ppm;
 }
 
@@ -43,11 +43,11 @@ function handleGetMap() {
     var zoomval = document.getElementById("zoomdrop");
     var zoom = "&zoom=" + zoomval[zoomval.selectedIndex].value;
     var formt = "&format=png32";
-    var mtype = "&maptype=satellite"
-    var sensor = "&sensor=false"
+    var mtype = "&maptype=satellite";
+    var sensor = "&sensor=false";
     var StaticAPIKey = "&key=AIzaSyC96sP49qW-aePnuHnJnRZhGcSkvhIWNKs";
     var baseURL = "http://maps.googleapis.com/maps/api/staticmap?";
-    var lat, lon, state, city, address, center
+    var lat, lon, state, city, address, center;
     if (cb.checked) {
         lat = document.getElementById("latbox").value;
         lon = document.getElementById("lonbox").value;
