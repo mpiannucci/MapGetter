@@ -8,7 +8,7 @@ urls = (
 # Set the debugging messages
 web.config.debug = True
 
-### Define the globals
+# Define the globals
 t_globals = {
 }
 render = web.template.render('templates', base='base', globals=t_globals)
@@ -16,8 +16,8 @@ render = web.template.render('templates', base='base', globals=t_globals)
 # Create the web application
 app = web.application(urls, globals())
 
-##------------------------------------------------------------------------
-## Form Definitions
+# ------------------------------------------------------------------------
+# Form Definitions
 
 zoomvalues = []
 for i in range(5, 20):
@@ -33,8 +33,8 @@ map_form = web.form.Form(web.form.Checkbox('By Coordinates', checked=True, id="c
                          web.form.Dropdown('Zoom', zoomvalues, id='zoomdrop'),
                          web.form.Button('Get My Map', id='formbutton', type='button', onClick='handleGetMap()'))
 
-##------------------------------------------------------------------------
-## Web Page Class Definitions
+# ------------------------------------------------------------------------
+# Web Page Class Definitions
 
 class Index:
     '''Main index page'''
@@ -46,14 +46,14 @@ def notfound():
     ''' Create the not found page '''
     return web.notfound('Sorry, the page you were looking for was not found.')
     # You can use template result like below, either is ok:
-    #return web.notfound(render.notfound())
-    #return web.notfound(str(render.notfound()))
+    # return web.notfound(render.notfound())
+    # return web.notfound(str(render.notfound()))
 
 def internalerror():
     ''' Create the internal error page '''
     return web.internalerror('The server says: No soup for you!')
 
-### Create the not found app
+# Create the not found app
 app.notfound = notfound
 app.internalerror = internalerror
 
