@@ -2,19 +2,19 @@
 <table>
     <tr>
         <th><label for="coordCheck">By Coordinates</label></th>
-        <td><input type="checkbox" id="coordCheck" checked="checked" onclick="handleCheck(this)"></input></td>
+        <td><input type="checkbox" id="coordcheck" checked="checked" onclick="handleCheck(this)"></input></td>
     </tr>
     <tr>
         <th><label for="addressbox">Address</label></th>
-        <td><input type="textbox" id="addressbox" disabled="disabled"></input></td>
+        <td><input type="textbox" id="addressbox" disabled></input></td>
     </tr>
     <tr>
         <th><label for="citybox">City</label></th>
-        <td><input type="textbox" id="citybox" disabled="disabled"></input></td>
+        <td><input type="textbox" id="citybox" disabled></input></td>
     </tr>
     <tr></th>
         <th><label for="statebox">State</label></th>
-        <td><input type="textbox" id="statebox" disabled="disabled"></input></td>
+        <td><input type="textbox" id="statebox" disabled></input></td>
     </tr>
     <tr>
         <th><label for="textbox">Latitude</label></th>
@@ -44,6 +44,10 @@
             <option value="19">19</option>
             <option value="20">20</option>
         </select></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><button type="button" id="formButton" onclick="handleGetMap()" name="Get My Map">Get My Map</button></td>
     </tr>
 </table>
 {{end}}
