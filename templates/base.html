@@ -1,5 +1,3 @@
-$def with (page)
-
 <html>
 <head>
     <title>MapGetter</title>
@@ -13,7 +11,7 @@ $def with (page)
         <em>Get static images of a central area with coorridinates in meters.</em>
     </div>
     <div id="mapImage">
-        $:page
+        {{ template "content" . }}
     </div>
     <div class="footer" id="mainfooter">
         <p>Copyright 2014, Matthew Iannucci</p>
