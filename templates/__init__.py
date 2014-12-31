@@ -54,7 +54,7 @@ def base (page):
     extend_([u'    </nav>\n'])
     extend_([u'    <header class="jumbotron map_jumbotron" id="mainheader">\n'])
     extend_([u'        <h1>MapGetter</h1>\n'])
-    extend_([u'        <em>Get static images of a central area with coorridinates in meters.</em>\n'])
+    extend_([u'        <em>Get static images of a central area with coordinates in meters</em>\n'])
     extend_([u'    </header>\n'])
     extend_([u'    <div class="row">\n'])
     extend_([u'        <div class="col-lg-12 text-center" id="mapImage">\n'])
