@@ -55,3 +55,10 @@ body {
     background-size: cover;
     color: #FFFFFF
 }
+
+/**
+ * Main Footer
+ */
+#mainFooter {
+    padding-top: 15px;
+}
