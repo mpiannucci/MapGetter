@@ -13,3 +13,6 @@ key.cfg
 
 # Web.py module
 web/
+
+# OSX directory cache
+*.DS_Store
