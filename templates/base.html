@@ -13,7 +13,6 @@ $def with (page)
 </head>
 
 <body>
-<div  class="container">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -45,21 +44,24 @@ $def with (page)
         </div>
         <!-- /.container -->
     </nav>
-    <header class="col-sm-12 jumbotron map_jumbotron" id="mainheader">
-        <h1>MapGetter</h1>
-        <p>Get static images of a central area with coordinates in meters</p>
-        <em>Images courtesy of Google Maps</em>
+    <header class="jumbotron map_jumbotron" id="mainheader">
+        <div  class="container">
+            <h1>MapGetter</h1>
+            <p>Get static images of a central area with coordinates in meters</p>
+            <em>Images courtesy of Google Maps</em>
+        </div>
     </header>
-    <div class="row">
-        <div class="col-sm-12 text-center" id="mapImage">
-            $:page
+    <div  class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center" id="mapImage">
+                $:page
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center" id="mainfooter">
+                <p>Copyright 2014, Matthew Iannucci</p>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12 text-center" id="mainfooter">
-            <p>Copyright 2014, Matthew Iannucci</p>
-        </div>
-    </div>
-</div>
 </body>
 </html>
