@@ -1,8 +1,87 @@
-$def with (form)
-
 <div id="mapforms" class="forms">
-    <form name="mapform" >
-        $:form.render()
+    <form name="mapform">
+        <table>
+            <tr>
+                <th>
+                    <label for="coordCheck">By Coordinates</label>
+                </th>
+                <td>
+                    <input type="checkbox" id="coordcheck" checked="checked" onclick="handleCheck(this)"></input>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="addressbox">Address</label>
+                </th>
+                <td>
+                    <input type="textbox" id="addressbox" disabled></input>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="citybox">City</label>
+                </th>
+                <td>
+                    <input type="textbox" id="citybox" disabled></input>
+                </td>
+            </tr>
+            <tr>
+                </th>
+                <th>
+                    <label for="statebox">State</label>
+                </th>
+                <td>
+                    <input type="textbox" id="statebox" disabled></input>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="textbox">Latitude</label>
+                </th>
+                <td>
+                    <input type="textbox" id="latbox"></input>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="lonbox">Longitude</label>
+                </th>
+                <td>
+                    <input type="textbox" id="lonbox"></input>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="zoomdrop" id="zoomlabel">Zoom</label>
+                </th>
+                <td>
+                    <select id="zoomdrop">Zoom
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <button type="button" id="formButton" onclick="handleGetMap()" name="Get My Map">Get My Map</button>
+                </td>
+            </tr>
+        </table>
     </form>
 </div>
 <div id="mapimage" class="images">
