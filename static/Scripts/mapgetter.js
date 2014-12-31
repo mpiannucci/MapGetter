@@ -53,8 +53,9 @@ function handleGetMap() {
         lon = document.getElementById("lonbox").value;
         center = "center=" + lat + "," + lon;
         var meters = scaleImage(1280, lat, zoomval[zoomval.selectedIndex].value);
-        var meterpix = document.getElementById("meterpixels");
-        meterpix.innerHTML = meters + " Meters Wide , " + meters + " Meters Tall";
+        document.getElementById("resultbox").disabled = false;
+        document.getElementById("resultbox").value = meters;
+        document.getElementById("resultbox").focus();
     }
     else {
         address = document.getElementById("addressbox").value;
