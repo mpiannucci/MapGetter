@@ -1,9 +1,11 @@
-{{define "content"}}
+$def with (form)
+
 <div id="mapforms" class="forms">
-    {{template "mapForm"}}
+    <form name="mapform" >
+        $:form.render()
+    </form>
 </div>
 <div id="mapimage" class="images">
     <img src="" id="mapresult" />
     <h3 id="meterpixels"></h3>
 </div>
-{{end}}

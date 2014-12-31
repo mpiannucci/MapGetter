@@ -1,5 +1,15 @@
+# Cached HTML files
+*.html~
+
+# Compiled Python files
+*.pyc
+
+# Project Files
+*.sublime-workspace
 .project
 
-*.html~
-*.sublime-workspace
+# Config Files
 key.cfg
+
+# Web.py module
+web/

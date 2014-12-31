@@ -1,17 +1,24 @@
+$def with (page)
+
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MapGetter</title>
     <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
-    <link rel="stylesheet"    type="text/css"     href="/static/Styles/styles.css"  />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/Styles/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/static/Scripts/mapgetter.js" type="text/javascript"></script>
 </head>
+
 <body>
     <div class="header" id="mainheader">
         <h1>MapGetter</h1>
-        <em>Get static images of a central area with coordinates in meters.</em>
+        <em>Get static images of a central area with coorridinates in meters.</em>
     </div>
     <div id="mapImage">
-        {{ template "content" . }}
+        $:page
     </div>
     <div class="footer" id="mainfooter">
         <p>Copyright 2014, Matthew Iannucci</p>
