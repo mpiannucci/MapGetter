@@ -62,3 +62,10 @@ body {
 #mainFooter {
     padding-top: 15px;
 }
+
+/**
+ * Main Image
+ */
+#mapresult {
+    width: 100%;
+}
