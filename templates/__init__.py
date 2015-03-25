@@ -16,6 +16,7 @@ def base (page):
     extend_([u'    <link rel="stylesheet" type="text/css" href="/static/Styles/styles.css" />\n'])
     extend_([u'    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>\n'])
     extend_([u'    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>\n'])
+    extend_([u'    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBAjB7wR6gn-dJJJW1zanV9_FNqrDFXIA0"></script>\n'])
     extend_([u'    <script src="/static/Scripts/mapgetter.js" type="text/javascript"></script>\n'])
     extend_([u'</head>\n'])
     extend_([u'\n'])
