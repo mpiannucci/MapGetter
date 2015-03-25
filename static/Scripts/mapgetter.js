@@ -2,8 +2,6 @@
  mapgetter.js -- MapGetter JavaScript definitions
  ***********************************************************/
 
-var lat_lon = [];
-
 // Handle the change in textbox state
 function handleCheck(cb) {
     var cityTextIds = [document.getElementById("addressbox"),
@@ -41,15 +39,9 @@ function getLatLong(address) {
     var geocoder = new google.maps.Geocoder();
 
     geocoder.geocode( { 'address': address, 'region': 'us' }, function(results, status) {
-        var result = []
         if (status == google.maps.GeocoderStatus.OK) {
-            // Weee we have the location
-            lat_lon= [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-        } else {
-            lat_lon = [0];
-        }
-        if (lat_lon[0] != 0) {
-            updateResultBox(lat_lon[0]);
+            // Weee we have the location, so update the size
+            updateResultBox(results[0].geometry.location.lat());
         }
     });
 }
