@@ -11,21 +11,11 @@ function handleCheck(cb) {
                        document.getElementById("statebox")];
     var llTextIds =   [document.getElementById("latbox"),
                        document.getElementById("lonbox")];
-    if (cb.checked) {
-        for (var i=0; i<cityTextIds.length; i++) {
-            cityTextIds[i].disabled = true;
-        }
-        for (var j=0; j<llTextIds.length; j++) {
-            llTextIds[j].disabled = false;
-        }
+    for (var i = 0; i < cityTextIds.length; i++) {
+        cityTextIds[i].disabled = cb.checked;
     }
-    else {
-        for (var k=0; k<cityTextIds.length; k++) {
-            cityTextIds[k].disabled = false;
-        }
-        for (var l=0; l<llTextIds.length; l++) {
-            llTextIds[l].disabled = true;
-        }
+    for (var j = 0; j < llTextIds.length; j++) {
+        llTextIds[j].disabled = !cb.checked;
     }
 }
 
@@ -37,24 +27,29 @@ function scaleImage(size, lat, zoom) {
     return size/ppm;
 }
 
+// Updates the value of the of the result box 
+function updateResultBox(latitude) {
+    var zoomval = document.getElementById("zoomdrop");
+    var meters = scaleImage(1280, latitude, zoomval[zoomval.selectedIndex].value);
+    document.getElementById("resultbox").disabled = false;
+    document.getElementById("resultbox").value = meters;
+    document.getElementById("resultbox").focus();
+}
+
 // Get the latitude and logitude from the user given address
 function getLatLong(address) {
     var geocoder = new google.maps.Geocoder();
 
-    var result = geocoder.geocode( { 'address': address, 'region': 'us' }, function(results, status) {
+    geocoder.geocode( { 'address': address, 'region': 'us' }, function(results, status) {
         var result = []
         if (status == google.maps.GeocoderStatus.OK) {
             // Weee we have the location
-            lat_lon= [results[0].geometry.location.D, results[0].geometry.location.k];
+            lat_lon= [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
         } else {
             lat_lon = [0];
         }
         if (lat_lon[0] != 0) {
-            var zoomval = document.getElementById("zoomdrop");
-            var meters = scaleImage(1280, lat_lon[0], zoomval[zoomval.selectedIndex].value);
-            document.getElementById("resultbox").disabled = false;
-            document.getElementById("resultbox").value = meters;
-            document.getElementById("resultbox").focus();
+            updateResultBox(lat_lon[0]);
         }
     });
 }
@@ -83,10 +78,7 @@ function handleGetMap() {
         center = "center=" + lat + "," + lon;
 
         // Get the resultant map size to show the user
-        var meters = scaleImage(1280, lat, zoomval[zoomval.selectedIndex].value);
-        document.getElementById("resultbox").disabled = false;
-        document.getElementById("resultbox").value = meters;
-        document.getElementById("resultbox").focus();
+        updateResultBox(lat);
     }
     else {
         // The Geo Address is the address string to send to the GeoCoding API
