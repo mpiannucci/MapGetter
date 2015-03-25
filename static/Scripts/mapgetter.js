@@ -69,3 +69,9 @@ function handleGetMap() {
     var pic = document.getElementById("mapresult");
     pic.src = mapurl;
 }
+
+// Show the user a prompt to copy the size to the clipboard
+function onSideLengthClick() {
+    var side_length = document.getElementById("resultbox").value;
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", side_length);
+}

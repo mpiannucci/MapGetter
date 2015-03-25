@@ -70,3 +70,10 @@ body {
 #mapresult {
     width: 100%;
 }
+
+/**
+ * Results Box
+ */
+input[readonly].default-cursor {
+    cursor: pointer;
+}

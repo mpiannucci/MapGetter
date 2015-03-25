@@ -165,7 +165,7 @@ def index():
     extend_([u'                    <label for="textbox">Width and Height (meters)</label>\n'])
     extend_([u'                </th>\n'])
     extend_([u'                <td>\n'])
-    extend_([u'                    <input type="textbox" id="resultbox" disabled=></input>\n'])
+    extend_([u'                    <input type="textbox" id="resultbox" disabled onclick="onSideLengthClick()" readonly="readonly"></input>\n'])
     extend_([u'                </td>\n'])
     extend_([u'            </tr>\n'])
     extend_([u'            <tr>\n'])
